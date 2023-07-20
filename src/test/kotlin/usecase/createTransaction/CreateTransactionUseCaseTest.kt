@@ -1,9 +1,11 @@
 package usecase.createTransaction
 
-import gateway.AccountGateway
-import gateway.TransactionGateway
+import internal.gateway.AccountGateway
+import internal.gateway.TransactionGateway
 import internal.entity.Account
 import internal.entity.Client
+import internal.usecase.createTransaction.CreateTransactionInputDTO
+import internal.usecase.createTransaction.CreateTransactionUseCase
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi

@@ -1,6 +1,8 @@
 package usecase.createClient
 
-import gateway.ClientGateway
+import internal.gateway.ClientGateway
+import internal.usecase.createClient.CreateClientInputDTO
+import internal.usecase.createClient.CreateClientUseCase
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.jupiter.api.Test

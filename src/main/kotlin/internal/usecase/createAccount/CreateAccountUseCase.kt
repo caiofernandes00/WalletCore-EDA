@@ -1,7 +1,7 @@
-package usecase.createAccount
+package internal.usecase.createAccount
 
-import gateway.AccountGateway
-import gateway.ClientGateway
+import internal.gateway.AccountGateway
+import internal.gateway.ClientGateway
 import internal.entity.Account
 
 data class CreateAccountInputDTO(

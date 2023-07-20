@@ -1,4 +1,4 @@
-package gateway
+package internal.gateway
 
 import internal.entity.Client
 

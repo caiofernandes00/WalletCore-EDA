@@ -1,7 +1,7 @@
-package usecase.createTransaction
+package internal.usecase.createTransaction
 
-import gateway.AccountGateway
-import gateway.TransactionGateway
+import internal.gateway.AccountGateway
+import internal.gateway.TransactionGateway
 import internal.entity.Transaction
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope

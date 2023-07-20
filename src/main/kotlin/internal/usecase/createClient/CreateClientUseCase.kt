@@ -1,6 +1,6 @@
-package usecase.createClient
+package internal.usecase.createClient
 
-import gateway.ClientGateway
+import internal.gateway.ClientGateway
 import internal.entity.Client
 import java.util.*
 

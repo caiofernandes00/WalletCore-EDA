@@ -1,14 +1,21 @@
 package internal.entity
 
+import java.time.LocalDate
 import java.util.*
 
-class Transaction private constructor(
+class Transaction(
     val id: String,
     val accountFrom: Account,
     val accountTo: Account,
     val amount: Float,
-    val createdAt: Date = Date(),
+    val createdAt: LocalDate = LocalDate.now(),
 ) {
+
+    init {
+        if (!isValid()) {
+            throw IllegalArgumentException("Invalid transaction")
+        }
+    }
 
     fun commit() {
         accountFrom.debit(amount)

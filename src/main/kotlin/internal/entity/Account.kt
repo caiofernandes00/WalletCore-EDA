@@ -1,18 +1,25 @@
 package internal.entity
 
+import java.time.LocalDate
 import java.util.*
 
-class Account private constructor(
+class Account(
     val id: String = UUID.randomUUID().toString(),
     var client: Client,
     var balance: Float,
-    val createdAt: Date = Date(),
-    var updatedAt: Date? = null,
+    val createdAt: LocalDate = LocalDate.now(),
+    var updatedAt: LocalDate? = null,
 ) {
+
+    init {
+        if (!isValid()) {
+            throw IllegalArgumentException("Invalid account")
+        }
+    }
 
     fun update(balance: Float) {
         this.balance = balance
-        this.updatedAt = Date()
+        this.updatedAt = LocalDate.now()
 
         if (!isValid()) {
             throw IllegalArgumentException("Invalid account")

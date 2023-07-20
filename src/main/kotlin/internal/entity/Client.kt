@@ -1,19 +1,26 @@
 package internal.entity
 
+import java.time.LocalDate
 import java.util.*
 
-class Client private constructor(
+class Client(
     var id: String = UUID.randomUUID().toString(),
     var name: String,
     var email: String,
-    var createdAt: Date = Date(),
-    var updatedAt: Date? = null,
+    var createdAt: LocalDate = LocalDate.now(),
+    var updatedAt: LocalDate? = null,
 ) {
+
+    init {
+        if (!isValid()) {
+            throw IllegalArgumentException("Invalid client")
+        }
+    }
 
     fun update(name: String, email: String) {
         this.name = name
         this.email = email
-        this.updatedAt = Date()
+        this.updatedAt = LocalDate.now()
 
         if (!isValid()) {
             throw IllegalArgumentException("Invalid client")

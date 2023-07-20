@@ -10,7 +10,9 @@ plugins {
 group = "org.example"
 version = "0.0.1-SNAPSHOT"
 
-val kotlinVersion = "1.8.22"
+val kotlin_version: String by project
+val exposed_version: String by project
+val h2_version: String by project
 
 repositories {
     mavenCentral()
@@ -22,6 +24,12 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation(kotlin("stdlib-jdk8"))
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
+    // Exposed
+    implementation("org.jetbrains.exposed:exposed-core:$exposed_version")
+    implementation("org.jetbrains.exposed:exposed-dao:$exposed_version")
+    implementation("org.jetbrains.exposed:exposed-jdbc:$exposed_version")
+    implementation("org.jetbrains.exposed:exposed-java-time:$exposed_version")
+    implementation("com.h2database:h2:$h2_version")
     // Spring
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter")
@@ -33,7 +41,6 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation(platform("org.junit:junit-bom:5.9.1"))
     testImplementation("org.junit.jupiter:junit-jupiter")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
     testImplementation(kotlin("test"))
     testImplementation("io.mockk:mockk:1.12.0")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test")
@@ -53,6 +60,7 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+    maxParallelForks = Runtime.getRuntime().availableProcessors() / 2
 }
 
 tasks.test {
