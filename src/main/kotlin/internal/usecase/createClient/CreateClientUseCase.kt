@@ -1,8 +1,8 @@
 package internal.usecase.createClient
 
-import internal.gateway.ClientGateway
 import internal.entity.Client
-import java.util.*
+import internal.gateway.ClientGateway
+import java.time.LocalDate
 
 data class CreateClientInputDTO(
     val name: String,
@@ -13,8 +13,8 @@ data class CreateClientOutputDTO(
     val id: String,
     val name: String,
     val email: String,
-    val createdAt: Date,
-    val updatedAt: Date? = null,
+    val createdAt: LocalDate,
+    val updatedAt: LocalDate? = null,
 )
 
 class CreateClientUseCase private constructor(

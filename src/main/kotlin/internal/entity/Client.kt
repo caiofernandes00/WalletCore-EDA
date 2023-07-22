@@ -34,14 +34,6 @@ class Client(
         fun create(
             name: String,
             email: String,
-        ): Client {
-            return Client(name = name, email = email).also { newClient ->
-                newClient.isValid().also {
-                    if (!it) {
-                        throw IllegalArgumentException("Invalid client")
-                    }
-                }
-            }
-        }
+        ): Client = Client(name = name, email = email)
     }
 }

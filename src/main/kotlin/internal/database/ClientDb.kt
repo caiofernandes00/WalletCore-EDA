@@ -1,11 +1,9 @@
 package internal.database
 
 import internal.entity.Client
-import org.jetbrains.exposed.sql.Column
-import org.jetbrains.exposed.sql.Table
-import org.jetbrains.exposed.sql.insert
+import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.javatime.date
-import org.jetbrains.exposed.sql.select
+import org.jetbrains.exposed.sql.transactions.transaction
 import java.time.LocalDate
 
 object ClientEntity : Table("client") {
@@ -19,25 +17,29 @@ object ClientEntity : Table("client") {
 }
 
 class ClientDb {
-    fun save(client: Client) {
-
-        ClientEntity.insert {
-            it[id] = client.id
-            it[name] = client.name
-            it[email] = client.email
+    fun save(client: Client) =
+        transaction {
+            ClientEntity.insert {
+                it[id] = client.id
+                it[name] = client.name
+                it[email] = client.email
+            }
         }
-    }
 
     @Throws(NoSuchElementException::class)
     fun get(id: String): Client {
-        ClientEntity.select {
-            ClientEntity.id eq id
-        }.first().let {
-            return Client(
-                id = it[ClientEntity.id],
-                name = it[ClientEntity.name],
-                email = it[ClientEntity.email],
-            )
+        return transaction {
+            ClientEntity.select {
+                ClientEntity.id eq id
+            }.first().let {
+                Client(
+                    id = it[ClientEntity.id],
+                    name = it[ClientEntity.name],
+                    email = it[ClientEntity.email],
+                    createdAt = it[ClientEntity.createdAt],
+                    updatedAt = it[ClientEntity.updatedAt],
+                )
+            }
         }
     }
 }
