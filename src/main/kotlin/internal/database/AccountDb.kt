@@ -33,21 +33,21 @@ class AccountDb {
     @Throws(NoSuchElementException::class)
     fun getById(id: String): Account {
         return transaction {
-            val client = ClientEntity.select {
-                ClientEntity.id eq id
-            }.first().let {
-                Client.create(
-                    id = it[ClientEntity.id],
-                    name = it[ClientEntity.name],
-                    email = it[ClientEntity.email],
-                    createdAt = it[ClientEntity.createdAt],
-                    updatedAt = it[ClientEntity.updatedAt],
-                )
-            }
-
             AccountEntity.select {
                 AccountEntity.id eq id
             }.first().let {
+                val client = ClientEntity.select {
+                    ClientEntity.id eq it[AccountEntity.client]
+                }.first().let {
+                    Client.create(
+                        id = it[ClientEntity.id],
+                        name = it[ClientEntity.name],
+                        email = it[ClientEntity.email],
+                        createdAt = it[ClientEntity.createdAt],
+                        updatedAt = it[ClientEntity.updatedAt],
+                    )
+                }
+
                 Account.create(
                     id = it[AccountEntity.id],
                     balance = it[AccountEntity.balance],

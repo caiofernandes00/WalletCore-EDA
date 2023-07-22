@@ -18,8 +18,8 @@ object Config {
 
     fun migrateDown() {
         transaction {
-            SchemaUtils.drop(ClientEntity)
             SchemaUtils.drop(AccountEntity)
+            SchemaUtils.drop(ClientEntity)
         }
     }
 }
