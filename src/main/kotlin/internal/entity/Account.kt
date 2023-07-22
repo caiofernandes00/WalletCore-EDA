@@ -3,19 +3,13 @@ package internal.entity
 import java.time.LocalDate
 import java.util.*
 
-class Account(
-    val id: String = UUID.randomUUID().toString(),
+class Account private constructor(
+    val id: String,
     var client: Client,
     var balance: Float,
-    val createdAt: LocalDate = LocalDate.now(),
-    var updatedAt: LocalDate? = null,
+    val createdAt: LocalDate,
+    var updatedAt: LocalDate?,
 ) {
-
-    init {
-        if (!isValid()) {
-            throw IllegalArgumentException("Invalid account")
-        }
-    }
 
     fun update(balance: Float) {
         this.balance = balance
@@ -49,10 +43,13 @@ class Account(
 
     companion object {
         fun create(
+            id: String = UUID.randomUUID().toString(),
             client: Client,
             balance: Float,
+            createdAt: LocalDate = LocalDate.now(),
+            updatedAt: LocalDate? = null,
         ): Account {
-            return Account(client = client, balance = balance).also { newAccount ->
+            return Account(id, client, balance, createdAt, updatedAt).also { newAccount ->
                 newAccount.isValid().also {
                     if (!it) {
                         throw IllegalArgumentException("Invalid account")

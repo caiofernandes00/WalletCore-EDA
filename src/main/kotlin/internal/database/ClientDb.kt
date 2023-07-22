@@ -6,7 +6,7 @@ import org.jetbrains.exposed.sql.javatime.date
 import org.jetbrains.exposed.sql.transactions.transaction
 import java.time.LocalDate
 
-object ClientEntity : Table("client") {
+object ClientEntity : Table("clients") {
     val id: Column<String> = varchar("id", 36)
     val name: Column<String> = varchar("name", 255)
     val email: Column<String> = varchar("email", 255)
@@ -27,12 +27,12 @@ class ClientDb {
         }
 
     @Throws(NoSuchElementException::class)
-    fun get(id: String): Client {
+    fun getById(id: String): Client {
         return transaction {
             ClientEntity.select {
                 ClientEntity.id eq id
             }.first().let {
-                Client(
+                Client.create(
                     id = it[ClientEntity.id],
                     name = it[ClientEntity.name],
                     email = it[ClientEntity.email],

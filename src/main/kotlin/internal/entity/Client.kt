@@ -3,19 +3,13 @@ package internal.entity
 import java.time.LocalDate
 import java.util.*
 
-class Client(
-    var id: String = UUID.randomUUID().toString(),
+class Client private constructor(
+    var id: String,
     var name: String,
     var email: String,
-    var createdAt: LocalDate = LocalDate.now(),
-    var updatedAt: LocalDate? = null,
+    var createdAt: LocalDate,
+    var updatedAt: LocalDate?,
 ) {
-
-    init {
-        if (!isValid()) {
-            throw IllegalArgumentException("Invalid client")
-        }
-    }
 
     fun update(name: String, email: String) {
         this.name = name
@@ -32,8 +26,17 @@ class Client(
 
     companion object {
         fun create(
+            id: String = UUID.randomUUID().toString(),
             name: String,
             email: String,
-        ): Client = Client(name = name, email = email)
+            createdAt: LocalDate = LocalDate.now(),
+            updatedAt: LocalDate? = null,
+        ): Client = Client(id, name, email, createdAt, updatedAt).also { newClient ->
+            newClient.isValid().also {
+                if (!it) {
+                    throw IllegalArgumentException("Invalid client")
+                }
+            }
+        }
     }
 }

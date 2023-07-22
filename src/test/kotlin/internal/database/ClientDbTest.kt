@@ -17,7 +17,7 @@ internal class ClientDbTest {
         )
         clientDb.save(client)
 
-        val clientFromDb = clientDb.get(client.id)
+        val clientFromDb = clientDb.getById(client.id)
         assert(clientFromDb.id == client.id)
         assert(clientFromDb.name == client.name)
         assert(clientFromDb.email == client.email)
