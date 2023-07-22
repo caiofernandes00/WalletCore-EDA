@@ -15,7 +15,7 @@ object AccountEntity : Table("accounts") {
     val createdAt = date("created_at").default(LocalDate.now())
     val updatedAt = date("updated_at").nullable()
 
-    override val primaryKey = PrimaryKey(id, name = "PK_Client_ID")
+    override val primaryKey = PrimaryKey(id, name = "PK_Account_ID")
 }
 
 class AccountDb {

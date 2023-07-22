@@ -12,6 +12,14 @@ object Config {
     fun migrate() {
         transaction {
             SchemaUtils.create(ClientEntity)
+            SchemaUtils.create(AccountEntity)
+        }
+    }
+
+    fun migrateDown() {
+        transaction {
+            SchemaUtils.drop(ClientEntity)
+            SchemaUtils.drop(AccountEntity)
         }
     }
 }

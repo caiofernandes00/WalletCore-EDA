@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e22cc204-fb8a-4e7b-afc1-697b2abda8f3" name="Changes" comment="test: add db validation">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/internal/database/AccountDb.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/internal/database/ClientDb.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/internal/database/ClientDb.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/internal/entity/Account.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/internal/entity/Account.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/internal/entity/Client.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/internal/entity/Client.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/internal/database/AccountDbTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/internal/database/AccountDb.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/internal/database/AccountDb.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/internal/database/Config.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/internal/database/Config.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/kotlin/internal/database/ClientDbTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/internal/database/ClientDbTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -96,10 +96,59 @@
       <recent name="C:\Users\caiow\OneDrive\Documents\Code\Apps\WalletCore-EDA\src\main\kotlin\internal" />
     </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="internal.database" />
       <recent name="internal.entity" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.ClientDbTest.should save client">
+  <component name="RunManager" selected="Gradle.AccountDbTest">
+    <configuration name="AccountDbTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;internal.database.AccountDbTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>true</ForceTestExec>
+      <method v="2" />
+    </configuration>
+    <configuration name="AccountDbTest.should save an account" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;internal.database.AccountDbTest.should save an account&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>true</ForceTestExec>
+      <method v="2" />
+    </configuration>
     <configuration name="ClientDbTest.should save client" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -172,61 +221,13 @@
       <ForceTestExec>true</ForceTestExec>
       <method v="2" />
     </configuration>
-    <configuration name="TransactionTest.create transaction with invalid amount" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;internal.entity.TransactionTest.create transaction with invalid amount&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <ForceTestExec>true</ForceTestExec>
-      <method v="2" />
-    </configuration>
-    <configuration name="TransactionTest.create transaction" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;internal.entity.TransactionTest.create transaction&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <ForceTestExec>true</ForceTestExec>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.AccountDbTest" />
+        <item itemvalue="Gradle.AccountDbTest.should save an account" />
         <item itemvalue="Gradle.ClientDbTest.should save client" />
         <item itemvalue="Gradle.CreateTransactionUseCaseTest.create transaction" />
         <item itemvalue="Gradle.CreateClientUseCaseTest.create a client" />
-        <item itemvalue="Gradle.TransactionTest.create transaction with invalid amount" />
-        <item itemvalue="Gradle.TransactionTest.create transaction" />
       </list>
     </recent_temporary>
   </component>
@@ -254,5 +255,16 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="test: add db validation" />
     <option name="LAST_COMMIT_MESSAGE" value="test: add db validation" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/internal/database/AccountDb.kt</url>
+          <line>35</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

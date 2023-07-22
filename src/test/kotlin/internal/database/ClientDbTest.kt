@@ -6,12 +6,12 @@ import org.junit.jupiter.api.Test
 internal class ClientDbTest {
 
     @Test
-    fun `should save client`() {
+    fun `should save a client`() {
         Config.connect()
         Config.migrate()
 
         val clientDb = ClientDb()
-        val client = Client(
+        val client = Client.create(
             name = "John Doe",
             email = "mail@mail.com",
         )
