@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e22cc204-fb8a-4e7b-afc1-697b2abda8f3" name="Changes" comment="test: add db validation">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/internal/database/TransactionDb.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/internal/database/AccountDb.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/internal/database/AccountDb.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/internal/database/Config.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/internal/database/Config.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/internal/database/AccountDbTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/internal/database/AccountDbTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +99,7 @@
       <recent name="internal.entity" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.AccountDbTest.should save an account">
+  <component name="RunManager" selected="Gradle.TransactionDbTest.should save a transaction">
     <configuration name="AccountDbTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -172,30 +172,6 @@
       <ForceTestExec>true</ForceTestExec>
       <method v="2" />
     </configuration>
-    <configuration name="CreateClientUseCaseTest.create a client" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;usecase.createClient.CreateClientUseCaseTest.create a client&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <ForceTestExec>true</ForceTestExec>
-      <method v="2" />
-    </configuration>
     <configuration name="CreateTransactionUseCaseTest.create transaction" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -220,13 +196,37 @@
       <ForceTestExec>true</ForceTestExec>
       <method v="2" />
     </configuration>
+    <configuration name="TransactionDbTest.should save a transaction" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;internal.database.TransactionDbTest.should save a transaction&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>true</ForceTestExec>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.TransactionDbTest.should save a transaction" />
         <item itemvalue="Gradle.AccountDbTest.should save an account" />
         <item itemvalue="Gradle.AccountDbTest" />
         <item itemvalue="Gradle.ClientDbTest.should save client" />
         <item itemvalue="Gradle.CreateTransactionUseCaseTest.create transaction" />
-        <item itemvalue="Gradle.CreateClientUseCaseTest.create a client" />
       </list>
     </recent_temporary>
   </component>

@@ -1,7 +1,6 @@
 package internal.database
 
 import internal.entity.Account
-import internal.entity.Client
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.javatime.date
 import org.jetbrains.exposed.sql.transactions.transaction
@@ -18,7 +17,10 @@ object AccountEntity : Table("accounts") {
     override val primaryKey = PrimaryKey(id, name = "PK_Account_ID")
 }
 
-class AccountDb {
+class AccountDb(
+    private val clientDb: ClientDb,
+) {
+
     fun save(account: Account) =
         transaction {
             AccountEntity.insert {
@@ -36,22 +38,10 @@ class AccountDb {
             AccountEntity.select {
                 AccountEntity.id eq id
             }.first().let {
-                val client = ClientEntity.select {
-                    ClientEntity.id eq it[AccountEntity.client]
-                }.first().let {
-                    Client.create(
-                        id = it[ClientEntity.id],
-                        name = it[ClientEntity.name],
-                        email = it[ClientEntity.email],
-                        createdAt = it[ClientEntity.createdAt],
-                        updatedAt = it[ClientEntity.updatedAt],
-                    )
-                }
-
                 Account.create(
                     id = it[AccountEntity.id],
                     balance = it[AccountEntity.balance],
-                    client = client,
+                    client = clientDb.getById(it[AccountEntity.client]),
                     createdAt = it[AccountEntity.createdAt],
                     updatedAt = it[AccountEntity.updatedAt],
                 )

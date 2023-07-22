@@ -13,11 +13,13 @@ object Config {
         transaction {
             SchemaUtils.create(ClientEntity)
             SchemaUtils.create(AccountEntity)
+            SchemaUtils.create(TransactionEntity)
         }
     }
 
     fun migrateDown() {
         transaction {
+            SchemaUtils.drop(TransactionEntity)
             SchemaUtils.drop(AccountEntity)
             SchemaUtils.drop(ClientEntity)
         }
