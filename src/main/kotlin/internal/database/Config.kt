@@ -6,7 +6,7 @@ import org.jetbrains.exposed.sql.transactions.transaction
 
 object Config {
     fun connect(): Database {
-        return Database.connect("jdbc:h2:file:./test.db", driver = "org.h2.Driver", user = "root", password = "")
+        return Database.connect("jdbc:h2:file:./test", driver = "org.h2.Driver", user = "root", password = "")
     }
 
     fun migrate() {
