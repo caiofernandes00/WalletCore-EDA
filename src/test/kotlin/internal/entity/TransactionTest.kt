@@ -1,5 +1,8 @@
 package internal.entity
 
+import org.example.eda.internal.entity.Account
+import org.example.eda.internal.entity.Client
+import org.example.eda.internal.entity.Transaction
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 

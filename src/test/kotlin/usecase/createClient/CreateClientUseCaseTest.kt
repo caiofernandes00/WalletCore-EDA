@@ -1,8 +1,8 @@
 package usecase.createClient
 
-import internal.repository.ClientRepository
-import internal.usecase.createClient.CreateClientInputDTO
-import internal.usecase.createClient.CreateClientUseCase
+import org.example.eda.internal.repository.ClientRepository
+import org.example.eda.internal.usecase.createClient.CreateClientInputDTO
+import org.example.eda.internal.usecase.createClient.CreateClientUseCase
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.jupiter.api.Test

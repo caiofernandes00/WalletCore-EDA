@@ -1,8 +1,8 @@
 package internal.repositories
 
-import internal.entity.Client
-import adapter.repository.ClientRepositoryImpl
-import adapter.repository.Config
+import org.example.eda.internal.entity.Client
+import org.example.eda.adapter.repository.ClientRepositoryImpl
+import org.example.eda.adapter.repository.Config
 import org.junit.jupiter.api.Test
 
 internal class ClientRepositoryImplTest {

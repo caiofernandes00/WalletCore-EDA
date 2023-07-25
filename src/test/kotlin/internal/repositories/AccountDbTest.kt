@@ -1,10 +1,10 @@
 package internal.repositories
 
-import adapter.repository.AccountRepositoryImpl
-import internal.entity.Account
-import internal.entity.Client
-import adapter.repository.ClientRepositoryImpl
-import adapter.repository.Config
+import org.example.eda.adapter.repository.AccountRepositoryImpl
+import org.example.eda.internal.entity.Account
+import org.example.eda.internal.entity.Client
+import org.example.eda.adapter.repository.ClientRepositoryImpl
+import org.example.eda.adapter.repository.Config
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
