@@ -1,7 +1,7 @@
 package internal.usecase.createClient
 
 import internal.entity.Client
-import internal.gateway.ClientGateway
+import internal.repository.ClientRepository
 import java.time.LocalDate
 
 data class CreateClientInputDTO(
@@ -18,7 +18,7 @@ data class CreateClientOutputDTO(
 )
 
 class CreateClientUseCase private constructor(
-    private val clientGateway: ClientGateway,
+    private val clientRepository: ClientRepository,
 ) {
 
     fun execute(input: CreateClientInputDTO): CreateClientOutputDTO {
@@ -27,7 +27,7 @@ class CreateClientUseCase private constructor(
             email = input.email,
         )
 
-        clientGateway.save(client)
+        clientRepository.create(client)
 
         return CreateClientOutputDTO(
             id = client.id,
@@ -39,8 +39,8 @@ class CreateClientUseCase private constructor(
     }
 
     companion object {
-        fun create(clientGateway: ClientGateway): CreateClientUseCase {
-            return CreateClientUseCase(clientGateway)
+        fun create(clientRepository: ClientRepository): CreateClientUseCase {
+            return CreateClientUseCase(clientRepository)
         }
     }
 }

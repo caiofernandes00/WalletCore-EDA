@@ -1,17 +1,18 @@
-package pkg.events
+package internal.event
 
 import java.util.*
 
 class HandlerAlreadyExistsException(message: String) : Exception(message)
 
-interface Event {
+interface EventInterface {
     fun getName(): String
     fun getDateTime(): Date
     fun getPayload(): Any
+    fun setPayload(payload: Any)
 }
 
 interface EventHandlerInterface {
-    fun handle(event: Event)
+    fun handle(event: EventInterface)
 }
 
 interface EventDispatcherInterface {
@@ -19,7 +20,7 @@ interface EventDispatcherInterface {
     fun register(eventName: String, handler: EventHandlerInterface)
 
     @Throws(Exception::class)
-    fun dispatch(event: Event)
+    fun dispatch(event: EventInterface)
 
     @Throws(Exception::class)
     fun remove(eventName: String, handler: EventHandlerInterface)

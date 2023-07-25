@@ -1,23 +1,25 @@
-package internal.database
+package internal.repositories
 
 import internal.entity.Client
+import adapter.repository.ClientRepositoryImpl
+import adapter.repository.Config
 import org.junit.jupiter.api.Test
 
-internal class ClientDbTest {
+internal class ClientRepositoryImplTest {
 
     @Test
     fun `should save a client`() {
         Config.connect()
         Config.migrate()
 
-        val clientDb = ClientDb()
+        val clientRepositoryImpl = ClientRepositoryImpl()
         val client = Client.create(
             name = "John Doe",
             email = "mail@mail.com",
         )
-        clientDb.save(client)
+        clientRepositoryImpl.create(client)
 
-        val clientFromDb = clientDb.getById(client.id)
+        val clientFromDb = clientRepositoryImpl.getById(client.id)
         assert(clientFromDb.id == client.id)
         assert(clientFromDb.name == client.name)
         assert(clientFromDb.email == client.email)

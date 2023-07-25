@@ -5,10 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e22cc204-fb8a-4e7b-afc1-697b2abda8f3" name="Changes" comment="test: add db validation">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/internal/database/TransactionDb.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/internal/database/AccountDb.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/internal/database/AccountDb.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/internal/database/AccountDbTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/internal/database/AccountDbTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/internal/event/impl/TransactionCreated.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/internal/database/AccountDb.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/adapter/repository/AccountRepositoryImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/internal/database/ClientDb.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/adapter/repository/ClientRepositoryImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/internal/database/Config.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/adapter/repository/Config.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/internal/database/TransactionDb.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/adapter/repository/TransactionRepositoryImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/internal/gateway/AccountGateway.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/internal/repository/AccountRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/internal/gateway/ClientGateway.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/internal/repository/ClientRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/internal/gateway/TransactionGateway.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/internal/repository/TransactionRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/internal/usecase/createAccount/CreateAccountUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/internal/usecase/createAccount/CreateAccountUseCase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/internal/usecase/createClient/CreateClientUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/internal/usecase/createClient/CreateClientUseCase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/internal/usecase/createTransaction/CreateTransactionUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/internal/usecase/createTransaction/CreateTransactionUseCase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/pkg/events/Event.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/internal/event/Event.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/pkg/events/EventDispatcher.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/internal/event/impl/EventDispatcher.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/internal/database/AccountDbTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/internal/repositories/AccountDbTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/internal/database/ClientDbTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/internal/repositories/ClientRepositoryImplTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/internal/database/TransactionDbTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/internal/repositories/TransactionDbTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/pkg/events/EventDispatcherTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/pkg/events/EventDispatcherTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/usecase/createClient/CreateClientUseCaseTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/usecase/createClient/CreateClientUseCaseTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/usecase/createTransaction/CreateTransactionUseCaseTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/usecase/createTransaction/CreateTransactionUseCaseTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,14 +113,21 @@
       <recent name="C:\Users\caiow\OneDrive\Documents\Code\Apps\WalletCore-EDA\src\main\kotlin\gateway" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\caiow\OneDrive\Documents\Code\Apps\WalletCore-EDA\src\main\kotlin\adapter\gateway\repository" />
+      <recent name="C:\Users\caiow\OneDrive\Documents\Code\Apps\WalletCore-EDA\src\main\kotlin\internal\repositories\impl" />
+      <recent name="C:\Users\caiow\OneDrive\Documents\Code\Apps\WalletCore-EDA\src\main\kotlin\internal\event" />
       <recent name="C:\Users\caiow\OneDrive\Documents\Code\Apps\WalletCore-EDA\src\main\kotlin\internal" />
+    </key>
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="internal.repositories" />
+      <recent name="internal.event.impl" />
     </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
       <recent name="internal.database" />
       <recent name="internal.entity" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.TransactionDbTest.should save a transaction">
+  <component name="RunManager" selected="Gradle.CreateTransactionUseCaseTest.create transaction">
     <configuration name="AccountDbTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -222,11 +250,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.CreateTransactionUseCaseTest.create transaction" />
         <item itemvalue="Gradle.TransactionDbTest.should save a transaction" />
         <item itemvalue="Gradle.AccountDbTest.should save an account" />
         <item itemvalue="Gradle.AccountDbTest" />
         <item itemvalue="Gradle.ClientDbTest.should save client" />
-        <item itemvalue="Gradle.CreateTransactionUseCaseTest.create transaction" />
       </list>
     </recent_temporary>
   </component>
@@ -249,6 +277,17 @@
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

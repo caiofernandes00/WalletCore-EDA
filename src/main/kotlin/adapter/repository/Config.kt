@@ -1,4 +1,4 @@
-package internal.database
+package adapter.repository
 
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils
@@ -11,17 +11,17 @@ object Config {
 
     fun migrate() {
         transaction {
-            SchemaUtils.create(ClientEntity)
-            SchemaUtils.create(AccountEntity)
-            SchemaUtils.create(TransactionEntity)
+            SchemaUtils.create(ClientModel)
+            SchemaUtils.create(AccountModel)
+            SchemaUtils.create(TransactionModel)
         }
     }
 
     fun migrateDown() {
         transaction {
-            SchemaUtils.drop(TransactionEntity)
-            SchemaUtils.drop(AccountEntity)
-            SchemaUtils.drop(ClientEntity)
+            SchemaUtils.drop(TransactionModel)
+            SchemaUtils.drop(AccountModel)
+            SchemaUtils.drop(ClientModel)
         }
     }
 }

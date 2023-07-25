@@ -1,29 +1,30 @@
-package internal.database
+package adapter.repository
 
 import internal.entity.Account
+import internal.repository.AccountRepository
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.javatime.date
 import org.jetbrains.exposed.sql.transactions.transaction
 import java.time.LocalDate
 
-object AccountEntity : Table("accounts") {
+object AccountModel : Table("accounts") {
     val id: Column<String> = varchar("id", 36)
     val balance: Column<Float> = float("balance")
     val client: Column<String> =
-        reference("client_id", ClientEntity.id, ReferenceOption.CASCADE, ReferenceOption.CASCADE)
+        reference("client_id", ClientModel.id, ReferenceOption.CASCADE, ReferenceOption.CASCADE)
     val createdAt = date("created_at").default(LocalDate.now())
     val updatedAt = date("updated_at").nullable()
 
     override val primaryKey = PrimaryKey(id, name = "PK_Account_ID")
 }
 
-class AccountDb(
-    private val clientDb: ClientDb,
-) {
+class AccountRepositoryImpl(
+    private val clientRepositoryImpl: ClientRepositoryImpl,
+) : AccountRepository {
 
-    fun save(account: Account) =
+    override fun create(account: Account) {
         transaction {
-            AccountEntity.insert {
+            AccountModel.insert {
                 it[id] = account.id
                 it[balance] = account.balance
                 it[client] = account.client.id
@@ -31,21 +32,21 @@ class AccountDb(
                 it[updatedAt] = account.updatedAt
             }
         }
+    }
 
     @Throws(NoSuchElementException::class)
-    fun getById(id: String): Account {
-        return transaction {
-            AccountEntity.select {
-                AccountEntity.id eq id
+    override fun getById(id: String): Account =
+        transaction {
+            AccountModel.select {
+                AccountModel.id eq id
             }.first().let {
                 Account.create(
-                    id = it[AccountEntity.id],
-                    balance = it[AccountEntity.balance],
-                    client = clientDb.getById(it[AccountEntity.client]),
-                    createdAt = it[AccountEntity.createdAt],
-                    updatedAt = it[AccountEntity.updatedAt],
+                    id = it[AccountModel.id],
+                    balance = it[AccountModel.balance],
+                    client = clientRepositoryImpl.getById(it[AccountModel.client]),
+                    createdAt = it[AccountModel.createdAt],
+                    updatedAt = it[AccountModel.updatedAt],
                 )
             }
         }
-    }
 }

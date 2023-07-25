@@ -1,6 +1,6 @@
 package usecase.createClient
 
-import internal.gateway.ClientGateway
+import internal.repository.ClientRepository
 import internal.usecase.createClient.CreateClientInputDTO
 import internal.usecase.createClient.CreateClientUseCase
 import io.mockk.every
@@ -9,13 +9,13 @@ import org.junit.jupiter.api.Test
 
 internal class CreateClientUseCaseTest {
 
-    private val clientGateway = mockk<ClientGateway>()
+    private val clientRepository = mockk<ClientRepository>()
 
     @Test
     fun `create a client`() {
         // Given
-        every { clientGateway.save(any()) } returns Unit
-        val useCase = CreateClientUseCase.create(clientGateway)
+        every { clientRepository.create(any()) } returns Unit
+        val useCase = CreateClientUseCase.create(clientRepository)
 
         // When
         val output = useCase.execute(createClientInputDTO)

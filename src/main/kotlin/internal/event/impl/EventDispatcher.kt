@@ -1,5 +1,9 @@
-package pkg.events
+package internal.event.impl
 
+import internal.event.EventDispatcherInterface
+import internal.event.EventHandlerInterface
+import internal.event.EventInterface
+import internal.event.HandlerAlreadyExistsException
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.joinAll
 import kotlinx.coroutines.launch
@@ -16,7 +20,7 @@ class EventDispatcher(
         }
     }
 
-    override fun dispatch(event: Event) {
+    override fun dispatch(event: EventInterface) {
         runBlocking {
             handlers[event.getName()]?.let {
                 coroutineScope {
@@ -24,7 +28,7 @@ class EventDispatcher(
                     jobs.joinAll()
                 }
             }
-        }
+        }.also { println("EventInterface ${event.getName()} dispatched") }
     }
 
     override fun remove(eventName: String, handler: EventHandlerInterface) {

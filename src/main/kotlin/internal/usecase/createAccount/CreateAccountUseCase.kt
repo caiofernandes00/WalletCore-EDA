@@ -1,8 +1,8 @@
 package internal.usecase.createAccount
 
-import internal.gateway.AccountGateway
-import internal.gateway.ClientGateway
 import internal.entity.Account
+import internal.repository.AccountRepository
+import internal.repository.ClientRepository
 
 data class CreateAccountInputDTO(
     val clientId: String,
@@ -13,12 +13,12 @@ data class CreateAccountOutputDTO(
 )
 
 class CreateAccountUseCase private constructor(
-    private val accountGateway: AccountGateway,
-    private val clientGateway: ClientGateway,
+    private val accountRepository: AccountRepository,
+    private val clientRepository: ClientRepository,
 ) {
 
     fun execute(input: CreateAccountInputDTO): CreateAccountOutputDTO {
-        val client = clientGateway.getById(input.clientId)
+        val client = clientRepository.getById(input.clientId)
             ?: throw IllegalArgumentException("Invalid client")
 
         val account = Account.create(
@@ -26,7 +26,7 @@ class CreateAccountUseCase private constructor(
             balance = 0f,
         )
 
-        accountGateway.save(account)
+        accountRepository.create(account)
 
         return CreateAccountOutputDTO(
             id = account.id,
@@ -34,8 +34,8 @@ class CreateAccountUseCase private constructor(
     }
 
     companion object {
-        fun create(accountGateway: AccountGateway, clientGateway: ClientGateway): CreateAccountUseCase {
-            return CreateAccountUseCase(accountGateway, clientGateway)
+        fun create(accountRepository: AccountRepository, clientRepository: ClientRepository): CreateAccountUseCase {
+            return CreateAccountUseCase(accountRepository, clientRepository)
         }
     }
 }

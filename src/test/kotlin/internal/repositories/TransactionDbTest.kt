@@ -1,8 +1,12 @@
-package internal.database
+package internal.repositories
 
 import internal.entity.Account
 import internal.entity.Client
 import internal.entity.Transaction
+import adapter.repository.AccountRepositoryImpl
+import adapter.repository.ClientRepositoryImpl
+import adapter.repository.Config
+import adapter.repository.TransactionRepositoryImpl
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
@@ -26,9 +30,9 @@ internal class TransactionDbTest {
 
     @Test
     fun `should save a transaction`() {
-        val clientDb = ClientDb()
-        val accountDb = AccountDb(clientDb)
-        val transactionDb = TransactionDb(accountDb)
+        val clientRepositoryImpl = ClientRepositoryImpl()
+        val accountRepositoryImpl = AccountRepositoryImpl(clientRepositoryImpl)
+        val transactionRepositoryImpl = TransactionRepositoryImpl(accountRepositoryImpl)
         val client = Client.create(
             name = "John Doe",
             email = "mail@mail.com",
@@ -42,11 +46,11 @@ internal class TransactionDbTest {
             accountTo = account,
             amount = 100.0f,
         )
-        clientDb.save(client)
-        accountDb.save(account)
-        transactionDb.save(transaction)
+        clientRepositoryImpl.create(client)
+        accountRepositoryImpl.create(account)
+        transactionRepositoryImpl.create(transaction)
 
-        val transactionResult = transactionDb.getById(transaction.id)
+        val transactionResult = transactionRepositoryImpl.getById(transaction.id)
         assert(transactionResult.accountFrom.id == transaction.accountFrom.id)
         assert(transactionResult.accountTo.id == transaction.accountTo.id)
         assert(transactionResult.amount == transaction.amount)

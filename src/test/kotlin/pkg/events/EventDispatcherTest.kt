@@ -1,15 +1,16 @@
 package pkg.events
 
+import internal.event.EventHandlerInterface
+import internal.event.EventInterface
+import internal.event.impl.EventDispatcher
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.params.ParameterizedTest
-import java.util.*
 import kotlin.test.assertTrue
 
 internal class EventDispatcherTest {
 
-    private val mockEvent = mockk<Event>()
+    private val mockEvent = mockk<EventInterface>()
 
     @Test
     fun `should validate event register`() {
@@ -20,7 +21,7 @@ internal class EventDispatcherTest {
 
         // When
         eventDispatcher.register("test", object : EventHandlerInterface {
-            override fun handle(event: Event) {
+            override fun handle(event: EventInterface) {
                 expected = true
             }
         })

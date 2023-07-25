@@ -1,12 +1,13 @@
-package internal.database
+package adapter.repository
 
 import internal.entity.Client
+import internal.repository.ClientRepository
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.javatime.date
 import org.jetbrains.exposed.sql.transactions.transaction
 import java.time.LocalDate
 
-object ClientEntity : Table("clients") {
+object ClientModel : Table("clients") {
     val id: Column<String> = varchar("id", 36)
     val name: Column<String> = varchar("name", 255)
     val email: Column<String> = varchar("email", 255)
@@ -16,30 +17,30 @@ object ClientEntity : Table("clients") {
     override val primaryKey = PrimaryKey(id, name = "PK_Client_ID")
 }
 
-class ClientDb {
-    fun save(client: Client) =
+class ClientRepositoryImpl : ClientRepository {
+    override fun create(client: Client) {
         transaction {
-            ClientEntity.insert {
+            ClientModel.insert {
                 it[id] = client.id
                 it[name] = client.name
                 it[email] = client.email
             }
         }
+    }
 
     @Throws(NoSuchElementException::class)
-    fun getById(id: String): Client {
-        return transaction {
-            ClientEntity.select {
-                ClientEntity.id eq id
+    override fun getById(id: String): Client =
+        transaction {
+            ClientModel.select {
+                ClientModel.id eq id
             }.first().let {
                 Client.create(
-                    id = it[ClientEntity.id],
-                    name = it[ClientEntity.name],
-                    email = it[ClientEntity.email],
-                    createdAt = it[ClientEntity.createdAt],
-                    updatedAt = it[ClientEntity.updatedAt],
+                    id = it[ClientModel.id],
+                    name = it[ClientModel.name],
+                    email = it[ClientModel.email],
+                    createdAt = it[ClientModel.createdAt],
+                    updatedAt = it[ClientModel.updatedAt],
                 )
             }
         }
-    }
 }

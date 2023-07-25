@@ -1,7 +1,10 @@
-package internal.database
+package internal.repositories
 
+import adapter.repository.AccountRepositoryImpl
 import internal.entity.Account
 import internal.entity.Client
+import adapter.repository.ClientRepositoryImpl
+import adapter.repository.Config
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
@@ -25,8 +28,8 @@ internal class AccountDbTest {
 
     @Test
     fun `should save an account`() {
-        val clientDb = ClientDb()
-        val accountDb = AccountDb(clientDb)
+        val clientRepositoryImpl = ClientRepositoryImpl()
+        val accountRepositoryImpl = AccountRepositoryImpl(clientRepositoryImpl)
         val client = Client.create(
             name = "John Doe",
             email = "mail@mail.com",
@@ -35,10 +38,10 @@ internal class AccountDbTest {
             balance = 100.0f,
             client = client,
         )
-        clientDb.save(client)
-        accountDb.save(account)
+        clientRepositoryImpl.create(client)
+        accountRepositoryImpl.create(account)
 
-        val accountResult = accountDb.getById(account.id)
+        val accountResult = accountRepositoryImpl.getById(account.id)
         assert(accountResult.id == account.id)
         assert(accountResult.balance == account.balance)
         assert(accountResult.client.id == account.client.id)
