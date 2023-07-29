@@ -1,4 +1,4 @@
-package internal.repositories
+package domain.repositories
 
 import org.example.eda.internal.entity.Client
 import org.example.eda.adapter.repository.ClientRepositoryImpl

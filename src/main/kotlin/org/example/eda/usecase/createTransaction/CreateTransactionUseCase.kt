@@ -1,10 +1,10 @@
-package org.example.eda.internal.usecase.createTransaction
+package org.example.eda.usecase.createTransaction
 
 import org.example.eda.internal.entity.Transaction
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
-import org.example.eda.internal.event.EventDispatcherInterface
-import org.example.eda.internal.event.EventInterface
+import org.example.eda.domain.event.EventDispatcherInterface
+import org.example.eda.domain.event.EventInterface
 import org.example.eda.internal.repository.AccountRepository
 import org.example.eda.internal.repository.TransactionRepository
 

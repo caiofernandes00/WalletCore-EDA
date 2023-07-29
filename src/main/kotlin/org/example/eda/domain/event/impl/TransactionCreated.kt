@@ -1,6 +1,6 @@
-package org.example.eda.internal.event.impl
+package org.example.eda.domain.event.impl
 
-import org.example.eda.internal.event.EventInterface
+import org.example.eda.domain.event.EventInterface
 import java.util.*
 
 class TransactionCreated(

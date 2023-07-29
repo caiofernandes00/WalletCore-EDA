@@ -2,15 +2,15 @@ package usecase.createTransaction
 
 import org.example.eda.internal.entity.Account
 import org.example.eda.internal.entity.Client
-import org.example.eda.internal.usecase.createTransaction.CreateTransactionInputDTO
-import org.example.eda.internal.usecase.createTransaction.CreateTransactionUseCase
+import org.example.eda.usecase.createTransaction.CreateTransactionInputDTO
+import org.example.eda.usecase.createTransaction.CreateTransactionUseCase
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
-import org.example.eda.internal.event.EventDispatcherInterface
-import org.example.eda.internal.event.EventInterface
+import org.example.eda.domain.event.EventDispatcherInterface
+import org.example.eda.domain.event.EventInterface
 import org.example.eda.internal.repository.AccountRepository
 import org.example.eda.internal.repository.TransactionRepository
 

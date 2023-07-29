@@ -1,4 +1,4 @@
-package internal.entity
+package domain.entity
 
 import org.example.eda.internal.entity.Account
 import org.example.eda.internal.entity.Client

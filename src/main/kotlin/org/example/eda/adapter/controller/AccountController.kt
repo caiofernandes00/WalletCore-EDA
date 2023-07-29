@@ -1,7 +1,7 @@
 package org.example.eda.adapter.controller
 
-import org.example.eda.internal.usecase.createAccount.CreateAccountInputDTO
-import org.example.eda.internal.usecase.createAccount.CreateAccountUseCase
+import org.example.eda.usecase.createAccount.CreateAccountInputDTO
+import org.example.eda.usecase.createAccount.CreateAccountUseCase
 import org.springframework.web.servlet.function.ServerRequest
 import org.springframework.web.servlet.function.ServerResponse
 

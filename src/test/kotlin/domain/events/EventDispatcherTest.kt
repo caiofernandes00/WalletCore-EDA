@@ -1,8 +1,8 @@
-package pkg.events
+package domain.events
 
-import org.example.eda.internal.event.EventHandlerInterface
-import org.example.eda.internal.event.EventInterface
-import org.example.eda.internal.event.impl.EventDispatcher
+import org.example.eda.domain.event.EventHandlerInterface
+import org.example.eda.domain.event.EventInterface
+import org.example.eda.domain.event.impl.EventDispatcher
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.jupiter.api.Test

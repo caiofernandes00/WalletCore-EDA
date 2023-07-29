@@ -1,4 +1,4 @@
-package org.example.eda.internal.usecase.createAccount
+package org.example.eda.usecase.createAccount
 
 import org.example.eda.internal.entity.Account
 import org.example.eda.internal.repository.AccountRepository

@@ -1,4 +1,4 @@
-package org.example.eda.internal.event
+package org.example.eda.domain.event
 
 import java.util.*
 

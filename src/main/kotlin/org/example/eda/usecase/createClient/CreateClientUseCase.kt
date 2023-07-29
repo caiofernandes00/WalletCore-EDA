@@ -1,4 +1,4 @@
-package org.example.eda.internal.usecase.createClient
+package org.example.eda.usecase.createClient
 
 import org.example.eda.internal.entity.Client
 import org.example.eda.internal.repository.ClientRepository

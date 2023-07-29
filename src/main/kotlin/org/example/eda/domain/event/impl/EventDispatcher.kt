@@ -1,9 +1,9 @@
-package org.example.eda.internal.event.impl
+package org.example.eda.domain.event.impl
 
-import org.example.eda.internal.event.EventDispatcherInterface
-import org.example.eda.internal.event.EventHandlerInterface
-import org.example.eda.internal.event.EventInterface
-import org.example.eda.internal.event.HandlerAlreadyExistsException
+import org.example.eda.domain.event.EventDispatcherInterface
+import org.example.eda.domain.event.EventHandlerInterface
+import org.example.eda.domain.event.EventInterface
+import org.example.eda.domain.event.HandlerAlreadyExistsException
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.joinAll
 import kotlinx.coroutines.launch
