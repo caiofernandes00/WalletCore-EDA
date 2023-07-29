@@ -1,12 +1,12 @@
 package org.example.eda.usecase.createTransaction
 
-import org.example.eda.internal.entity.Transaction
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
+import org.example.eda.domain.entity.Transaction
 import org.example.eda.domain.event.EventDispatcherInterface
 import org.example.eda.domain.event.EventInterface
-import org.example.eda.internal.repository.AccountRepository
-import org.example.eda.internal.repository.TransactionRepository
+import org.example.eda.domain.repository.AccountRepository
+import org.example.eda.domain.repository.TransactionRepository
 
 data class CreateTransactionInputDTO(
     val accountFromId: String,
@@ -18,7 +18,7 @@ data class CreateTransactionOutputDTO(
     val id: String
 )
 
-class CreateTransactionUseCase private constructor(
+class CreateTransactionUseCase(
     private val transactionRepository: TransactionRepository,
     private val accountRepository: AccountRepository,
     private val eventDispatcher: EventDispatcherInterface,
@@ -29,10 +29,10 @@ class CreateTransactionUseCase private constructor(
         val accountFromDeferred = async { accountRepository.getById(inputDTO.accountFromId) }
         val accountToDeferred = async { accountRepository.getById(inputDTO.accountToId) }
 
-        val accountFrom = accountFromDeferred.await()
-        val accountTo = accountToDeferred.await()
+        val accountFrom = accountFromDeferred.await() ?: throw Exception("Account from not found")
+        val accountTo = accountToDeferred.await() ?: throw Exception("Account to not found")
 
-        val transaction = Transaction.create(
+        val transaction = Transaction(
             accountFrom = accountFrom,
             accountTo = accountTo,
             amount = inputDTO.amount,
@@ -43,16 +43,5 @@ class CreateTransactionUseCase private constructor(
         eventDispatcher.dispatch(transactionCreated)
 
         return@coroutineScope CreateTransactionOutputDTO(transaction.id)
-    }
-
-    companion object {
-        fun create(
-            transactionRepository: TransactionRepository,
-            accountRepository: AccountRepository,
-            eventDispatcher: EventDispatcherInterface,
-            transactionCreated: EventInterface
-        ): CreateTransactionUseCase {
-            return CreateTransactionUseCase(transactionRepository, accountRepository, eventDispatcher, transactionCreated)
-        }
     }
 }

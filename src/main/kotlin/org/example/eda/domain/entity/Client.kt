@@ -1,15 +1,21 @@
-package org.example.eda.internal.entity
+package org.example.eda.domain.entity
 
 import java.time.LocalDate
 import java.util.*
 
-class Client private constructor(
-    var id: String,
+class Client(
+    var id: String = UUID.randomUUID().toString(),
     var name: String,
     var email: String,
-    var createdAt: LocalDate,
-    var updatedAt: LocalDate?,
+    var createdAt: LocalDate = LocalDate.now(),
+    var updatedAt: LocalDate? = null,
 ) {
+
+    init {
+        if (!isValid()) {
+            throw IllegalArgumentException("Invalid client")
+        }
+    }
 
     fun update(name: String, email: String) {
         this.name = name
@@ -23,20 +29,4 @@ class Client private constructor(
 
     private fun isValid() =
         id.isNotBlank() && name.isNotBlank() && email.isNotBlank()
-
-    companion object {
-        fun create(
-            id: String = UUID.randomUUID().toString(),
-            name: String,
-            email: String,
-            createdAt: LocalDate = LocalDate.now(),
-            updatedAt: LocalDate? = null,
-        ): Client = Client(id, name, email, createdAt, updatedAt).also { newClient ->
-            newClient.isValid().also {
-                if (!it) {
-                    throw IllegalArgumentException("Invalid client")
-                }
-            }
-        }
-    }
 }

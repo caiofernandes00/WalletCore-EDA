@@ -1,8 +1,8 @@
-package domain.entity
+package org.example.eda.domain.entity
 
-import org.example.eda.internal.entity.Account
-import org.example.eda.internal.entity.Client
-import org.example.eda.internal.entity.Transaction
+import org.example.eda.domain.entity.Account
+import org.example.eda.domain.entity.Client
+import org.example.eda.domain.entity.Transaction
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 
@@ -10,7 +10,7 @@ class TransactionTest {
 
     @Test
     fun `create transaction`() {
-        val transaction = Transaction.create(
+        val transaction = Transaction(
             accountFrom = accountFrom,
             accountTo = accountTo,
             amount = 10f,
@@ -24,7 +24,7 @@ class TransactionTest {
     @Test
     fun `create transaction with invalid amount`() {
         val e = assertThrows<IllegalArgumentException> {
-            Transaction.create(
+            Transaction(
                 accountFrom = accountFrom,
                 accountTo = accountTo,
                 amount = -10f,
@@ -36,17 +36,17 @@ class TransactionTest {
 
 
     companion object {
-        private val client = Client.create(
+        private val client = Client(
             name = "John Doe",
             email = "d@d.com",
         )
 
-        private val accountFrom = Account.create(
+        private val accountFrom = Account(
             client = client,
             balance = 100f,
         )
 
-        private val accountTo = Account.create(
+        private val accountTo = Account(
             client = client,
             balance = 100f,
         )

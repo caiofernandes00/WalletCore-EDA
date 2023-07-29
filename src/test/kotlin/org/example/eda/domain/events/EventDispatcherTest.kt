@@ -1,4 +1,4 @@
-package domain.events
+package org.example.eda.domain.events
 
 import org.example.eda.domain.event.EventHandlerInterface
 import org.example.eda.domain.event.EventInterface

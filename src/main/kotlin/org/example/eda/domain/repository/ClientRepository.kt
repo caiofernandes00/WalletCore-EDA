@@ -1,9 +1,8 @@
-package org.example.eda.internal.repository
+package org.example.eda.domain.repository
 
-import org.example.eda.internal.entity.Client
+import org.example.eda.domain.entity.Client
 
 interface ClientRepository {
-    @Throws(NoSuchElementException::class)
-    fun getById(id: String): Client
-    fun create(client: Client)
+    fun getById(id: String): Client?
+    fun create(client: Client): String
 }

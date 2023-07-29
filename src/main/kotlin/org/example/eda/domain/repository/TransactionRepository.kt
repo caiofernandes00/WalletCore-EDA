@@ -1,9 +1,8 @@
-package org.example.eda.internal.repository
+package org.example.eda.domain.repository
 
-import org.example.eda.internal.entity.Transaction
+import org.example.eda.domain.entity.Transaction
 
 interface TransactionRepository {
-    fun create(transaction: Transaction)
-    @Throws(NoSuchElementException::class)
-    fun getById(id: String): Transaction
+    fun create(transaction: Transaction): String
+    fun getById(id: String): Transaction?
 }

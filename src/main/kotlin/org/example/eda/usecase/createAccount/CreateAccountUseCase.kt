@@ -1,8 +1,8 @@
 package org.example.eda.usecase.createAccount
 
-import org.example.eda.internal.entity.Account
-import org.example.eda.internal.repository.AccountRepository
-import org.example.eda.internal.repository.ClientRepository
+import org.example.eda.domain.repository.AccountRepository
+import org.example.eda.domain.repository.ClientRepository
+import org.example.eda.domain.entity.Account
 
 data class CreateAccountInputDTO(
     val clientId: String,
@@ -18,9 +18,9 @@ class CreateAccountUseCase(
 ) {
 
     fun execute(input: CreateAccountInputDTO): CreateAccountOutputDTO {
-        val client = clientRepository.getById(input.clientId)
+        val client = clientRepository.getById(input.clientId) ?: throw Exception("Client not found")
 
-        val account = Account.create(
+        val account = Account(
             client = client,
             balance = 0f,
         )

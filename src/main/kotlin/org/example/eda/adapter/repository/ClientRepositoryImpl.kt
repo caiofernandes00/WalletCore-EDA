@@ -1,7 +1,7 @@
 package org.example.eda.adapter.repository
 
-import org.example.eda.internal.entity.Client
-import org.example.eda.internal.repository.ClientRepository
+import org.example.eda.domain.entity.Client
+import org.example.eda.domain.repository.ClientRepository
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.javatime.date
 import org.jetbrains.exposed.sql.transactions.transaction
@@ -15,32 +15,34 @@ object ClientModel : Table("clients") {
     val updatedAt = date("updated_at").nullable()
 
     override val primaryKey = PrimaryKey(id, name = "PK_Client_ID")
+
+    fun toDomain(row: ResultRow): Client =
+        Client(
+            id = row[id],
+            name = row[name],
+            email = row[email],
+            createdAt = row[createdAt],
+            updatedAt = row[updatedAt],
+        )
+
 }
 
 class ClientRepositoryImpl : ClientRepository {
-    override fun create(client: Client) {
+    override fun create(client: Client): String =
         transaction {
             ClientModel.insert {
                 it[id] = client.id
                 it[name] = client.name
                 it[email] = client.email
-            }
+            } get ClientModel.id
         }
-    }
 
-    @Throws(NoSuchElementException::class)
-    override fun getById(id: String): Client =
+    override fun getById(id: String): Client? =
         transaction {
             ClientModel.select {
                 ClientModel.id eq id
-            }.first().let {
-                Client.create(
-                    id = it[ClientModel.id],
-                    name = it[ClientModel.name],
-                    email = it[ClientModel.email],
-                    createdAt = it[ClientModel.createdAt],
-                    updatedAt = it[ClientModel.updatedAt],
-                )
+            }.firstOrNull()?.let {
+                ClientModel.toDomain(it)
             }
         }
 }

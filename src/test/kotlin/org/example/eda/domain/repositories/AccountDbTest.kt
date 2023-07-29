@@ -1,10 +1,10 @@
-package domain.repositories
+package org.example.eda.domain.repositories
 
 import org.example.eda.adapter.repository.AccountRepositoryImpl
-import org.example.eda.internal.entity.Account
-import org.example.eda.internal.entity.Client
 import org.example.eda.adapter.repository.ClientRepositoryImpl
 import org.example.eda.adapter.repository.Config
+import org.example.eda.domain.entity.Account
+import org.example.eda.domain.entity.Client
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
@@ -30,11 +30,11 @@ internal class AccountDbTest {
     fun `should save an account`() {
         val clientRepositoryImpl = ClientRepositoryImpl()
         val accountRepositoryImpl = AccountRepositoryImpl(clientRepositoryImpl)
-        val client = Client.create(
+        val client = Client(
             name = "John Doe",
             email = "mail@mail.com",
         )
-        val account = Account.create(
+        val account = Account(
             balance = 100.0f,
             client = client,
         )
@@ -42,7 +42,7 @@ internal class AccountDbTest {
         accountRepositoryImpl.create(account)
 
         val accountResult = accountRepositoryImpl.getById(account.id)
-        assert(accountResult.id == account.id)
+        assert(accountResult!!.id == account.id)
         assert(accountResult.balance == account.balance)
         assert(accountResult.client.id == account.client.id)
     }

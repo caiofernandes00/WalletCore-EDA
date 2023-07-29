@@ -1,15 +1,21 @@
-package org.example.eda.internal.entity
+package org.example.eda.domain.entity
 
 import java.time.LocalDate
 import java.util.*
 
-class Account private constructor(
-    val id: String,
+class Account(
+    val id: String = UUID.randomUUID().toString(),
     var client: Client,
     var balance: Float,
-    val createdAt: LocalDate,
-    var updatedAt: LocalDate?,
+    val createdAt: LocalDate = LocalDate.now(),
+    var updatedAt: LocalDate? = null,
 ) {
+
+    init {
+        if (!isValid()) {
+            throw IllegalArgumentException("Invalid account")
+        }
+    }
 
     fun update(balance: Float) {
         this.balance = balance
@@ -40,22 +46,4 @@ class Account private constructor(
 
     private fun isValid() =
         id.isNotBlank() && balance >= 0
-
-    companion object {
-        fun create(
-            id: String = UUID.randomUUID().toString(),
-            client: Client,
-            balance: Float,
-            createdAt: LocalDate = LocalDate.now(),
-            updatedAt: LocalDate? = null,
-        ): Account {
-            return Account(id, client, balance, createdAt, updatedAt).also { newAccount ->
-                newAccount.isValid().also {
-                    if (!it) {
-                        throw IllegalArgumentException("Invalid account")
-                    }
-                }
-            }
-        }
-    }
 }

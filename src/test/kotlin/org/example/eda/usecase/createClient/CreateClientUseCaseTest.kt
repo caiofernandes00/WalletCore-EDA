@@ -1,6 +1,6 @@
-package usecase.createClient
+package org.example.eda.usecase.createClient
 
-import org.example.eda.internal.repository.ClientRepository
+import org.example.eda.domain.repository.ClientRepository
 import org.example.eda.usecase.createClient.CreateClientInputDTO
 import org.example.eda.usecase.createClient.CreateClientUseCase
 import io.mockk.every
@@ -14,8 +14,8 @@ internal class CreateClientUseCaseTest {
     @Test
     fun `create a client`() {
         // Given
-        every { clientRepository.create(any()) } returns Unit
-        val useCase = CreateClientUseCase.create(clientRepository)
+        every { clientRepository.create(any()) } returns ""
+        val useCase = CreateClientUseCase(clientRepository)
 
         // When
         val output = useCase.execute(createClientInputDTO)

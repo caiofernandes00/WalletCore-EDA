@@ -1,7 +1,7 @@
 package org.example.eda.usecase.createClient
 
-import org.example.eda.internal.entity.Client
-import org.example.eda.internal.repository.ClientRepository
+import org.example.eda.domain.entity.Client
+import org.example.eda.domain.repository.ClientRepository
 import java.time.LocalDate
 
 data class CreateClientInputDTO(
@@ -17,12 +17,12 @@ data class CreateClientOutputDTO(
     val updatedAt: LocalDate? = null,
 )
 
-class CreateClientUseCase private constructor(
+class CreateClientUseCase(
     private val clientRepository: ClientRepository,
 ) {
 
     fun execute(input: CreateClientInputDTO): CreateClientOutputDTO {
-        val client = Client.create(
+        val client = Client(
             name = input.name,
             email = input.email,
         )
@@ -38,9 +38,4 @@ class CreateClientUseCase private constructor(
         )
     }
 
-    companion object {
-        fun create(clientRepository: ClientRepository): CreateClientUseCase {
-            return CreateClientUseCase(clientRepository)
-        }
-    }
 }

@@ -1,7 +1,8 @@
 package org.example.eda.adapter.repository
 
-import org.example.eda.internal.entity.Transaction
-import org.example.eda.internal.repository.TransactionRepository
+import org.example.eda.domain.entity.Account
+import org.example.eda.domain.entity.Transaction
+import org.example.eda.domain.repository.TransactionRepository
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.javatime.date
 import org.jetbrains.exposed.sql.transactions.transaction
@@ -18,34 +19,40 @@ object TransactionModel : Table("transactions") {
     val updatedAt = date("updated_at").nullable()
 
     override val primaryKey = PrimaryKey(id, name = "PK_Transaction_ID")
+
+    fun toDomain(row: ResultRow, accountFrom: Account, accountTo: Account): Transaction =
+        Transaction(
+            id = row[id],
+            amount = row[amount],
+            accountFrom = accountFrom,
+            accountTo = accountTo,
+            createdAt = row[createdAt],
+        )
 }
 
 class TransactionRepositoryImpl(
     private val accountRepositoryImpl: AccountRepositoryImpl,
 ) : TransactionRepository {
-    override fun create(transaction: Transaction) {
+    override fun create(transaction: Transaction): String =
         transaction {
             TransactionModel.insert {
                 it[id] = transaction.id
                 it[amount] = transaction.amount
                 it[accountFrom] = transaction.accountFrom.id
                 it[accountTo] = transaction.accountTo.id
-            }
+            } get TransactionModel.id
         }
-    }
 
-    @Throws(NoSuchElementException::class)
-    override fun getById(id: String): Transaction {
+    override fun getById(id: String): Transaction? {
         return transaction {
             TransactionModel.select { TransactionModel.id eq id }
-                .first().let {
-                    Transaction(
-                        id = it[TransactionModel.id],
-                        accountFrom = accountRepositoryImpl.getById(it[TransactionModel.accountFrom]),
-                        accountTo = accountRepositoryImpl.getById(it[TransactionModel.accountTo]),
-                        amount = it[TransactionModel.amount],
-                        createdAt = it[TransactionModel.createdAt],
-                    )
+                .firstOrNull()?.let {
+                    val accountFrom = accountRepositoryImpl.getById(it[TransactionModel.accountFrom])
+                        ?: throw Exception("Account not found")
+                    val accountTo = accountRepositoryImpl.getById(it[TransactionModel.accountTo])
+                        ?: throw Exception("Account not found")
+
+                    TransactionModel.toDomain(it, accountFrom, accountTo)
                 }
         }
     }
