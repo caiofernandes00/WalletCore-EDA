@@ -1,24 +1,15 @@
 package org.example.eda.adapter.controller
 
-import org.springframework.web.servlet.function.RouterFunctionDsl
 import org.springframework.web.servlet.function.router
 
-object AppRouter {
-    private const val API = "/api"
 
-    private fun baseRouter(fn: RouterFunctionDsl.() -> Unit) = router {
-        API.nest {
-            fn()
-        }
-    }
+private const val BASE_API = "/api"
 
-    private fun accountRouter() = baseRouter {
+fun routes(accountController: AccountController) = router {
+    BASE_API.nest {
         "/account".nest {
-            POST(AccountController::createAccount)
+            POST(accountController::createAccount)
+            GET("/{id}", accountController::getAccountById)
         }
-    }
-
-    fun routes() = baseRouter {
-        accountRouter()
     }
 }

@@ -2,6 +2,7 @@ package org.example.eda.adapter.repository
 
 import org.example.eda.internal.entity.Account
 import org.example.eda.internal.repository.AccountRepository
+import org.example.eda.internal.repository.ClientRepository
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.javatime.date
 import org.jetbrains.exposed.sql.transactions.transaction
@@ -19,7 +20,7 @@ object AccountModel : Table("accounts") {
 }
 
 class AccountRepositoryImpl(
-    private val clientRepositoryImpl: ClientRepositoryImpl,
+    private val clientRepository: ClientRepository,
 ) : AccountRepository {
 
     override fun create(account: Account) {
@@ -43,7 +44,7 @@ class AccountRepositoryImpl(
                 Account.create(
                     id = it[AccountModel.id],
                     balance = it[AccountModel.balance],
-                    client = clientRepositoryImpl.getById(it[AccountModel.client]),
+                    client = clientRepository.getById(it[AccountModel.client]),
                     createdAt = it[AccountModel.createdAt],
                     updatedAt = it[AccountModel.updatedAt],
                 )

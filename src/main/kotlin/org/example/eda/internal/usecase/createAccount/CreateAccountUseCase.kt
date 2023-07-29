@@ -12,14 +12,13 @@ data class CreateAccountOutputDTO(
     val id: String,
 )
 
-class CreateAccountUseCase private constructor(
+class CreateAccountUseCase(
     private val accountRepository: AccountRepository,
     private val clientRepository: ClientRepository,
 ) {
 
     fun execute(input: CreateAccountInputDTO): CreateAccountOutputDTO {
         val client = clientRepository.getById(input.clientId)
-            ?: throw IllegalArgumentException("Invalid client")
 
         val account = Account.create(
             client = client,
@@ -31,11 +30,5 @@ class CreateAccountUseCase private constructor(
         return CreateAccountOutputDTO(
             id = account.id,
         )
-    }
-
-    companion object {
-        fun create(accountRepository: AccountRepository, clientRepository: ClientRepository): CreateAccountUseCase {
-            return CreateAccountUseCase(accountRepository, clientRepository)
-        }
     }
 }
