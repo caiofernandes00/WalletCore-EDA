@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e22cc204-fb8a-4e7b-afc1-697b2abda8f3" name="Changes" comment="test: add db validation">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/adapter/controller/ClientController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/domain/event/Event.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/domain/event/Event.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/domain/event/impl/EventDispatcher.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/domain/event/impl/EventDispatcher.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/domain/event/impl/TransactionCreated.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/domain/event/impl/TransactionCreated.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/shared/BeansConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/shared/BeansConfig.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/usecase/createAccount/CreateAccountUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/usecase/createAccount/CreateAccountUseCase.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/usecase/createTransaction/CreateTransactionUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/usecase/createTransaction/CreateTransactionUseCase.kt" afterDir="false" />
-    </list>
+    <list default="true" id="e22cc204-fb8a-4e7b-afc1-697b2abda8f3" name="Changes" comment="test: add db validation" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

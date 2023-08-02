@@ -22,7 +22,7 @@ class CreateTransactionUseCase(
     private val transactionRepository: TransactionRepository,
     private val accountRepository: AccountRepository,
     private val eventDispatcher: EventDispatcherInterface,
-    private val transactionCreated: EventInterface
+    private val event: EventInterface
 ) {
 
     suspend fun execute(inputDTO: CreateTransactionInputDTO): CreateTransactionOutputDTO = coroutineScope {
@@ -40,8 +40,8 @@ class CreateTransactionUseCase(
 
         transactionRepository.create(transaction)
 
-        transactionCreated.setPayload(transaction)
-        eventDispatcher.dispatch(transactionCreated)
+        event.setPayload(transaction)
+        eventDispatcher.dispatch(event)
 
         return@coroutineScope CreateTransactionOutputDTO(transaction.id)
     }
