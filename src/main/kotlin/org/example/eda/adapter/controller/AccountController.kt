@@ -17,8 +17,4 @@ class AccountController(
                 request.body(CreateAccountInputDTO::class.java)
             )
         )
-
-    fun getAccountById(
-        request: ServerRequest
-    ) = ServerResponse.ok().body("")
 }

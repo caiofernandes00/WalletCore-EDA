@@ -3,7 +3,7 @@ package org.example.eda.domain.event.impl
 import org.example.eda.domain.event.EventInterface
 import java.util.*
 
-class TransactionCreated(
+class TransactionCreatedEvent(
     private val name: String,
     private var payload: Any
 ) : EventInterface {

@@ -5,6 +5,8 @@ import org.example.eda.adapter.controller.routes
 import org.example.eda.adapter.repository.AccountRepositoryImpl
 import org.example.eda.adapter.repository.ClientRepositoryImpl
 import org.example.eda.adapter.repository.Config
+import org.example.eda.domain.event.EventDispatcherInterface
+import org.example.eda.domain.event.impl.EventDispatcher
 import org.example.eda.domain.repository.AccountRepository
 import org.example.eda.domain.repository.ClientRepository
 import org.example.eda.usecase.createAccount.CreateAccountUseCase
@@ -24,10 +26,13 @@ val beans = beans {
             ref()
         )
     }
+    bean<EventDispatcherInterface> {
+        EventDispatcher()
+    }
     bean<CreateAccountUseCase> {
         CreateAccountUseCase(
             ref(),
-            ref()
+            ref(),
         )
     }
     bean<AccountController> {

@@ -16,19 +16,9 @@ interface EventHandlerInterface {
 }
 
 interface EventDispatcherInterface {
-    @Throws(HandlerAlreadyExistsException::class)
     fun register(eventName: String, handler: EventHandlerInterface)
-
-    @Throws(Exception::class)
     fun dispatch(event: EventInterface)
-
-    @Throws(Exception::class)
     fun remove(eventName: String, handler: EventHandlerInterface)
-
-    @Throws(Exception::class)
     fun has(eventName: String, handler: EventHandlerInterface): Boolean
-
-    @Throws(Exception::class)
     fun clear()
-
 }

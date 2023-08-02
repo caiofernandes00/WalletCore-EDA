@@ -39,6 +39,7 @@ class CreateTransactionUseCase(
         )
 
         transactionRepository.create(transaction)
+
         transactionCreated.setPayload(transaction)
         eventDispatcher.dispatch(transactionCreated)
 

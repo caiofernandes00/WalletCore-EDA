@@ -1,8 +1,8 @@
 package org.example.eda.usecase.createAccount
 
+import org.example.eda.domain.entity.Account
 import org.example.eda.domain.repository.AccountRepository
 import org.example.eda.domain.repository.ClientRepository
-import org.example.eda.domain.entity.Account
 
 data class CreateAccountInputDTO(
     val clientId: String,

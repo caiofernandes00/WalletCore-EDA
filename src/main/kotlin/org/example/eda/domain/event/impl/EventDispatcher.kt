@@ -1,23 +1,18 @@
 package org.example.eda.domain.event.impl
 
-import org.example.eda.domain.event.EventDispatcherInterface
-import org.example.eda.domain.event.EventHandlerInterface
-import org.example.eda.domain.event.EventInterface
-import org.example.eda.domain.event.HandlerAlreadyExistsException
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.joinAll
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
+import org.example.eda.domain.event.EventDispatcherInterface
+import org.example.eda.domain.event.EventHandlerInterface
+import org.example.eda.domain.event.EventInterface
 
 class EventDispatcher(
-    private val handlers: MutableMap<String, MutableList<EventHandlerInterface>> = mutableMapOf()
+    private val handlers: MutableMap<String, MutableSet<EventHandlerInterface>> = mutableMapOf()
 ) : EventDispatcherInterface {
     override fun register(eventName: String, handler: EventHandlerInterface) {
-        if (handlers.containsKey(eventName)) {
-            throw HandlerAlreadyExistsException("Handler for event $eventName already exists")
-        } else {
-            handlers[eventName]?.add(handler) ?: handlers.put(eventName, mutableListOf(handler))
-        }
+        handlers[eventName]?.add(handler) ?: handlers.put(eventName, mutableSetOf(handler))
     }
 
     override fun dispatch(event: EventInterface) {

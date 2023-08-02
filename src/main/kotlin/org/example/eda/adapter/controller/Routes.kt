@@ -9,7 +9,6 @@ fun routes(accountController: AccountController) = router {
     BASE_API.nest {
         "/account".nest {
             POST(accountController::createAccount)
-            GET("/{id}", accountController::getAccountById)
         }
     }
 }

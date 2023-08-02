@@ -5,33 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e22cc204-fb8a-4e7b-afc1-697b2abda8f3" name="Changes" comment="test: add db validation">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/aws.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/adapter/repository/AccountRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/adapter/repository/AccountRepositoryImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/adapter/repository/ClientRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/adapter/repository/ClientRepositoryImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/adapter/repository/TransactionRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/adapter/repository/TransactionRepositoryImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/domain/entity/Account.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/domain/entity/Account.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/domain/entity/Client.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/domain/entity/Client.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/domain/entity/Transaction.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/domain/entity/Transaction.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/domain/repository/AccountRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/domain/repository/AccountRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/domain/repository/ClientRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/domain/repository/ClientRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/domain/repository/TransactionRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/domain/repository/TransactionRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/adapter/controller/ClientController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/domain/event/Event.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/domain/event/Event.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/domain/event/impl/EventDispatcher.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/domain/event/impl/EventDispatcher.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/domain/event/impl/TransactionCreated.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/domain/event/impl/TransactionCreated.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/shared/BeansConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/shared/BeansConfig.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/usecase/createAccount/CreateAccountUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/usecase/createAccount/CreateAccountUseCase.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/usecase/createClient/CreateClientUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/usecase/createClient/CreateClientUseCase.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/usecase/createTransaction/CreateTransactionUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/eda/usecase/createTransaction/CreateTransactionUseCase.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/domain/entity/TransactionTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/example/eda/domain/entity/TransactionTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/domain/events/EventDispatcherTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/example/eda/domain/events/EventDispatcherTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/domain/repositories/AccountDbTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/example/eda/domain/repositories/AccountDbTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/domain/repositories/ClientRepositoryImplTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/example/eda/domain/repositories/ClientRepositoryImplTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/domain/repositories/TransactionDbTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/example/eda/domain/repositories/TransactionDbTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/usecase/createClient/CreateClientUseCaseTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/example/eda/usecase/createClient/CreateClientUseCaseTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/usecase/createTransaction/CreateTransactionUseCaseTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/example/eda/usecase/createTransaction/CreateTransactionUseCaseTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +46,7 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="WalletCore" type="f1a62948:ProjectNode" />
-                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
               </path>
             </expand>
             <select />
@@ -109,7 +96,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Color Scheme Font&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MTConfigurable&quot;,
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
 }</component>
@@ -130,35 +117,12 @@
       <recent name="internal.event.impl" />
     </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="org.example.eda.adapter.controller" />
       <recent name="internal.database" />
       <recent name="internal.entity" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.EventDispatcherTest.should validate event register">
-    <configuration name="EventDispatcherTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;domain.events.EventDispatcherTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <ForceTestExec>true</ForceTestExec>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Kotlin.ApplicationRunnerKt">
     <configuration name="EventDispatcherTest.should validate event register" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -173,28 +137,6 @@
             <option value=":test" />
             <option value="--tests" />
             <option value="&quot;org.example.eda.domain.events.EventDispatcherTest.should validate event register&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <ForceTestExec>true</ForceTestExec>
-      <method v="2" />
-    </configuration>
-    <configuration name="Tests in 'WalletCore'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -229,6 +171,50 @@
       <ForceTestExec>true</ForceTestExec>
       <method v="2" />
     </configuration>
+    <configuration name="WalletCore-EDA [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="bootRun" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>false</ForceTestExec>
+      <method v="2" />
+    </configuration>
+    <configuration name="WalletCore-EDA [bootTestRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="bootTestRun" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>false</ForceTestExec>
+      <method v="2" />
+    </configuration>
     <configuration name="ApplicationRunnerKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.eda.ApplicationRunnerKt" />
       <module name="WalletCore.main" />
@@ -238,11 +224,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.EventDispatcherTest.should validate event register" />
-        <item itemvalue="Gradle.Tests in 'org.example.eda'" />
-        <item itemvalue="Gradle.EventDispatcherTest" />
-        <item itemvalue="Gradle.Tests in 'WalletCore'" />
         <item itemvalue="Kotlin.ApplicationRunnerKt" />
+        <item itemvalue="Gradle.WalletCore-EDA [bootRun]" />
+        <item itemvalue="Gradle.WalletCore-EDA [bootTestRun]" />
+        <item itemvalue="Gradle.Tests in 'org.example.eda'" />
+        <item itemvalue="Gradle.EventDispatcherTest.should validate event register" />
       </list>
     </recent_temporary>
   </component>
